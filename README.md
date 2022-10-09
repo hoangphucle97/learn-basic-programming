@@ -1,2 +1,2 @@
 # learn-basic-programming
-Exercise 
+This is tutorial to learn basic programming from scratch. 
