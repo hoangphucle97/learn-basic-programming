@@ -27,3 +27,21 @@ This chapter cover about introduction computer history and kind of it.
 - It runs on baterry.
 ### Pocket PC
 - Personal technical equipment has a very rich function as check email, see movies, listen to music, browse the web. Multiple calculator functions mobile phone.
+## The basic components of a computers.
+- Software:system software and application software.
+- Hardware: Memory, Central Processing Unit (CPU) and Input/ output device.
+### The hardware devices - structure:
+- Input.
+- Central Processing Unit (Control unit, Register and Arithmectic Logic Unit).
+- ROM, RAM, FDD, HDD, CD/ DVD.
+- Output.
+### The hardware devices - memory:
+- The devices that stores information during computer processing.
+### Hardware devices - internal memory:
+#### ROM (Read Only Memory)
+- Read only informations.
+- Save system program.
+- Not lost when power failure.
+#### RAM (Random Access Memory)
+- Random Access Memory.
+- Loss of data during power failure.
