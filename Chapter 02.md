@@ -1,7 +1,7 @@
 # Chapter 02: Introduction to C language
 ## Introduce
 ### The language precursor B
-### it is a structured and case sensitive programming language
+### It is a structured and case sensitive programming language
 ### Advantages of C language:
 - Powerful, flexible.
 - Widely used.
