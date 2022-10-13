@@ -45,3 +45,38 @@ This chapter cover about introduction computer history and kind of it.
 #### RAM (Random Access Memory)
 - Random Access Memory.
 - Loss of data during power failure.
+### The hardware - external memory
+#### Floppy disk
+- The storage capacity 1.44 MB.
+- Diameter 3.5 inch.
+#### Hard disk
+- The large storage capicity about: 20 GB, 30 GB, 750 GB,...
+#### Compact disk
+- CD disk have the storage capacity 700 MB. However, DVD with 4.7 GB of storage.
+#### Memory stick or compact flash card
+- The storage capacity about 32 MB, 64 MB,  128 MB,...
+#### USB flash drive
+- The storage capacity about 256 MB, 512 MB, 1 GB,...
+### The hardware _ CPU
+- Attached to a clock is called a clock set. The higher the clock speed, the faster the information processing speed.
+- Pentium 4/D, Dual Core, Core 2 Duo, Core 2 Quad. Speed: 2.0 GHz, ..., 3.0 GHz...
+### The hardware - input
+- Keyboard
+- Mouse
+- Scanner
+- Camera and webcam
+- Digital camera
+### The hardware - output
+- Projector
+- Printer
+- Speaker
+### Software
+#### System sofware
+- Operating software
+- The software that comes with the hardware device: MSDOS,Linux, Windows...
+#### Application software
+- Text editor
+- Calculation and analysis
+- Graphics
+- Security
+- Game
