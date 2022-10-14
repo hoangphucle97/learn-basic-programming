@@ -51,6 +51,7 @@
 - void main() is main function.
 - {//} include commands and procedures.
 ### For example
+``` sh
 #include <stdio.h>
 #include <conio.h>
 
@@ -64,4 +65,4 @@ tong = x + y;
 printf(“Tong hai so la %d”, tong);
 getch();
 
-}
+} ```
