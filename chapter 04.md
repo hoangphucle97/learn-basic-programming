@@ -33,3 +33,48 @@ and for a value of a certain type.
 - Operand: the constant, variable, the function call, etc.
 #### For example
 - 2 +3, a/5,(a+b)*5,...
+### The operator assigns a value to the variable
+#### Concept
+- Often used on programming.
+- Assigns a value to the variable.
+#### Syntax
+- <variable> = <value>;
+- <variable> = <variable>;
+- <variable> = <the constant>;
+- Variables can be assigned values consecutively.
+#### For example
+``` sh
+void main()
+{
+
+int a, b, c, d, e, thuong;
+a = 10;
+b = a;
+thuong = a / b;
+a = b = c = d = e = 156;
+e = 156;
+d = e;
+c = d;
+b = c;
+a = b;
+
+}
+```
+### The math operators
+#### Operator with one operands
+- There is only one operand in the expression
+- ++ (Increase by 1 unit), -- (decreased by 1 unit)
+- Before the operand: perform increment/decrement first.
+- After the operand: perform increment/decrement later.
+#### for example
+- x = 10, y = x ++; // y = 10 and x = 11
+- x = 10, y = ++ x; // x = 11 and y = 11
+#### Operator with two operands
+- There are two operands in the expression.
+- +, -, *, /, % (divide by remainder).
+- x = x + y <=> x += y;
+#### For example
+- a = 1 + 2; b = 1 - 2;
+- e = 1*1.0/2; f = float(1)/2;
+- x = x * (2+3*5); <=> x*= 2 + 3 * 5;
+
