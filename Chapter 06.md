@@ -89,3 +89,34 @@ Change odd part 0.25 10
 - Depending on your needs, you can use the number 2, 3... word.
 Depending on your needs, you can use the number 2, 3... word.
 - lsb = 1 then the number is an odd number.
+## Signed integer representation.
+- Store positive or negative numbers.
+- Msb = 0 represents a positive number.
+- Msb = 1 represents a negative number.
+- Negative numbers in the machine are represented as 2's complement.
+- The 2's complement of x is a negative value of x or - x.
+## Calculate signed and unsigned values.
+- The msb bit = 0 then the signed value is equal to the unsigned value.
+- Bit msb = 1 then the signed value is equal to the unsigned value minus 256 (bytes) or 65536 (words).
+## Real number representation.
+- To store odd numbers.
+- Use floating point
+- Divided into 3 parts:1 bit to represent the sign; A bit string to represent the exponent; A bit string to represent the mantissa.
+## Representation of alphanumeric information.
+### Concept.
+- To represent characters such as lowercase, uppercase, symbols...
+### Code Systems.
+- Binary-coded decimal (BCD): uses 4-bit binary numbers instead of decimals.
+- Extended Binary Coded Decimal Interchange Code (EBCDIC): uses 8 bits to represent 1 character.
+## Representation of alphanumeric information.
+- American Standard Code for Information Interchange
+``` sh
+• 1 – 31: Control sign.
+• 32 – 47: Space, “ # $ % & ‘ ( ) * +, - . /
+• 48 – 57: Characters from 0 to 9
+• 58 – 64: Signs : ; < = > ? @
+• 65 – 90: Capital letters A to Z
+• 91 – 96: Signs [ \ ] _ `
+• 97 – 122: Lowercase letters a to z
+• 123 – 127: Signs { | } ~ DEL
+```
