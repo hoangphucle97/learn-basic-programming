@@ -44,10 +44,10 @@ void main()
     Hieu = a - b;
     Tich = a * b;
     Thuong = a / b;
-    printf ("Tong của a và b là: %d \n", &Tong);
-    printf ("Hieu của a và b là: %d\n", &Hieu);
-    printf ("Tich của a và b là: %d\n", &Tich);
-    printf ("Thuong của a và b là: %d\n", &Thuong);
+    printf ("Tong của a và b là: %d \n", Tong);
+    printf ("Hieu của a và b là: %d\n", Hieu);
+    printf ("Tich của a và b là: %d\n", Tich);
+    printf ("Thuong của a và b là: %d\n", Thuong);
 }
 ```
 ## Example 6
