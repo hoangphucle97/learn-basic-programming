@@ -1,7 +1,7 @@
 # The repeat command.
 ## The "For" command.
- *For(<star>;<Repeat condition>;<jump>)*
-    *<command>;*
+ For(<star>;<Repeat condition>;<jump>)
+    <command>;
 ``` sh
 void main()
 {
