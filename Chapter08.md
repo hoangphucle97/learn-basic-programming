@@ -1,7 +1,9 @@
 # The repeat command.
 ## The "For" command.
-- **For(<star>;<Repeat condition>;<jump>)**
-    **<command>;**
+```
+**For(<star>;<Repeat condition>;<jump>)**
+    [**<command>;**]
+```
 ``` sh
 void main()
 {
@@ -32,9 +34,32 @@ for (int i = 1, j = 2; i + j < 10; i++, j += 2)
     printf(“%d\n”, i + j);
 ```
 ## The "while" command.
-- **While(<Repeat condition>)**
-    **<command>;**
+``` sh
+While(<Repeat condition>)
+{
+    <command>;
+}
+```
+## The "while" command - Some note.
 - The **while** statement is a single statement and can nested.
 - The **while** statement may not execute at all because the first iteration condition is not satisfied.
 - Don't add **;** right after the while statement.
-- The while statement can be looped endlessly (loop).
+- The **while** statement can be looped endlessly (loop).
+## The "do… while" command.
+```sh
+Do
+{
+    <Command>;
+}
+While <Repeat condition>;
+```
+## The "do-while" command - Some note.
+- The **do-while** statement is a single statement and can nested.
+- The "do… while" statement will be executed at least once because the loop condition is checked at the end.
+- The **do-while** statement can be looped endlessly (loop).
+## The "for, while, do-while" command.
+- Both have the ability to repeat many actions.
+- The number of iterations is specified in the "for" statement.
+## The "while & do-while" command.
+- The "while" statement may not execute at all.
+- The "do… while" statement will be executed at least once.
