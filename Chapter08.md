@@ -1,7 +1,7 @@
 # The repeat command.
 ## The "For" command.
- For(<star>;<Repeat condition>;<jump>)
-    <command>;
+- **For(<star>;<Repeat condition>;<jump>)**
+    **<command>;**
 ``` sh
 void main()
 {
@@ -31,3 +31,10 @@ void main()
 for (int i = 1, j = 2; i + j < 10; i++, j += 2)
     printf(“%d\n”, i + j);
 ```
+## The "while" command.
+- **While(<Repeat condition>)**
+    **<command>;**
+- The **while** statement is a single statement and can nested.
+- The **while** statement may not execute at all because the first iteration condition is not satisfied.
+- Don't add **;** right after the while statement.
+- The while statement can be looped endlessly (loop).
