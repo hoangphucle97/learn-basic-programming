@@ -4,7 +4,7 @@
 **For(<star>;<Repeat condition>;<jump>)**
     [**<command>;**]
 ```
-``` sh
+```sh
 void main()
 {
     int i;
