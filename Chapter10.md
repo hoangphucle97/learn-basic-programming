@@ -152,3 +152,150 @@ return vt;
 return -1;
 }
 ```
+## Check properties of arrays.
+- Method 1: Count the number of primes of the array. If this number is exactly n, then the array is all prime.
+```sh
+int KiemTra_C1(int a[], int n)
+{
+int dem = 0;
+for (int i = 0; i < n; i++)
+if (LaSNT(a[i]) == 1) // có thể bỏ == 1
+dem++;
+if (dem == n)
+return 1;
+return 0;
+}
+```
+- Method 2: Count the number of non-prime numbers in the array. If this count is 0, then the array is all prime.
+```sh
+int KiemTra_C2(int a[], int n)
+{
+int dem = 0;
+for (int i = 0; i < n; i++)
+if (LaSNT(a[i]) == 0) // Có thể sử dụng !
+dem++;
+if (dem == 0)
+return 1;
+return 0;
+}
+```
+- Method 3: Find if any element is not prime or not. If so, the array is not all prime.
+```sh
+int KiemTra_C3(int a[], int n)
+{
+for (int i = 0; i < n ; i++)
+if (LaSNT(a[i]) == 0)
+return 0;
+return 1;
+}
+```
+## Prime number separation function.
+```sh
+void TachSNT(int a[], int na, int b[], int &nb)
+{
+nb = 0;
+for (int i = 0; i < na; i++)
+if (LaSNT(a[i]) == 1)
+{
+b[nb] = a[i];
+nb++;
+}
+}
+```
+## Split the array into 2 subarrays.
+### Request
+- Given array a, number of elements na. Split array a into 2 arrays b (containing prime numbers) and array c (remaining numbers).
+### Idea
+- Method 1: write a function that separates prime numbers from array a to array b and a function that separates non-prime numbers from array a to array c.
+- Method 2: Browse from the element of array a, if it is a prime number, put it into array b, otherwise put it into array c.
+```sh
+void TachSNT2(int a[], int na,
+int b[], int &nb, int c[], int &nc)
+{
+nb = 0;
+nc = 0;
+for (int i = 0; i < na; i++)
+if (LaSNT(a[i]) == 1)
+{
+b[nb] = a[i]; nb++;
+}
+else
+{
+c[nc] = a[i]; nc++;
+}
+}
+```
+## Merge 2 arrays into one array.
+### Request
+- Given array a, number of elements na and array b number of elements nb. Combine the above 2 arrays in that order into array c, number of elements nc.
+### Idea
+- Convert the elements of array a to array c
+=> nc = na
+- Continue to put the elements of array b into array c
+=> nc = nc + nb
+```sh
+void GopMang(int a[], int na, int b[], int nb,
+int c[], int &nc)
+{
+nc = 0;
+for (int i = 0; i < na; i++)
+{
+c[nc] = a[i]; nc++; // c[nc++] = a[i];
+}
+for (int i = 0; i < nb; i++)
+{
+c[nc] = b[i]; nc++; // c[nc++] = b[i];
+}
+}
+```
+## Function to find Max.
+```sh
+int TimMax(int a[], int n)
+{
+int max = a[0];
+for (int i = 1; i < n; i++)
+if (a[i] > max)
+max = a[i];
+return max;
+}
+```
+## Ascending Sort Function.
+```sh
+void SapXepTang(int a[], int n)
+{
+int i, j;
+for (i = 0; i < n – 1; i++)
+{
+for (j = i + 1; j < n; j++)
+{
+if (a[i] > a[j])
+HoanVi(a[i], a[j]);
+}
+}
+}
+```
+## Function Add.
+```sh
+void Them(int a[], int &n, int vt, int x)
+{
+if (vt >= 0 && vt <= n)
+{
+for (int i = n; i > vt; i--)
+a[i] = a[i - 1];
+a[vt] = x;
+n++;
+}
+}
+```
+## Delete function.
+```sh
+void Xoa(int a[], int &n, int vt)
+{
+if (vt >= 0 && vt < n)
+{
+for (int i = vt; i < n – 1; i++)
+a[i] = a[i + 1];
+n--;
+}
+}
+```
