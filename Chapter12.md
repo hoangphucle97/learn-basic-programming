@@ -94,4 +94,100 @@ void hoanvi(int &x, int &y)
 int t = x; x = y; y = t;
 }
 ```
-    
+## Pointers and one-dimensional arrays.
+### One-dimensional arrays.
+    **int array[number];**
+- The array name array is a pointer constant
+  ->The value of this constant cannot be changed.
+- The value of array is the address of the first element of the array
+-> array == &array[0]
+### Pointer to one-dimensional array.
+```sh
+int array[3], *parray;
+parray = array; // Method 1
+parray = &array[0]; // Method 2
+```
+## Arithmetic operations on pointers.
+### Addition (increase).
+- + n <-> + n * sizeof(<data type>).
+- Can use the aggregate operator += or ++.
+### Subtraction (decrease).
+- - n <-> - n * sizeof(<data type>).
+- Can use the aggregate operator -= or --.
+### Calculation of the distance between two pointers.
+- <data type> *p1, *p2;
+- p1 - p2 gives us the distance (in number of elements) between two pointers (of the same type).
+### Other math operations.
+- Comparison operation: Compares addresses between two children pointer (order of memory cells)
+    == !=
+    > >=
+    < <=
+- Cannot perform math operations: * / %.
+## Pointers and one-dimensional arrays.
+### Access to the nth element of the array.
+**array[n] == p[n] == *(p + n)**
+### Array input example.
+```sh
+void main()
+{
+int a[10], n = 10, *pa;
+pa = a; // hoặc pa = &a[0];
+for (int i = 0; i<n; i++)
+scanf(“%d”, &a[i]);
+scanf(“%d”, &pa[i]);
+scanf(“%d”, a + i);
+scanf(“%d”, pa + i);
+scanf(“%d”, a++);
+scanf(“%d”, pa++);
+}
+=> &a[i] <=> (a + i) <=> (pa + i) <=> &pa[i]
+```
+### Array output example.
+```sh
+void main()
+{
+int a[10], n = 10, *pa;
+pa = a; // hoặc pa = &a[0];
+…
+for (int i = 0; i<n; i++)
+printf(“%d”, a[i]);
+printf(“%d”, pa[i]);
+printf(“%d”, *(a + i));
+printf(“%d”, *(pa + i));
+printf(“%d”, *(a++));
+printf(“%d”, *(pa++));
+}
+=> a[i] <=> *(a + i) <=> *(pa + i) <=> pa[i]
+```
+### Pass a one - dimensional array to the function.
+**Note: The one-dimensional array passed to the function is the address of the first element, not the entire array.**
+### The array argument passed to the function.
+```sh
+void xuat(int a[10], int n)
+{
+for (int i = 0; i<n; i++)
+printf(“%d”, *(a++)); // OK
+}
+void main()
+{
+int a[10], n = 10;
+for (int i = 0; i<n; i++)
+printf(“%d”, *(a++)); // Lỗi
+}
+```
+=> The array argument passed to the function is not a pointer constant.
+### Pointers and structs.
+- Access in two ways.
+    **<tên biến con trỏ cấu trúc>-><tên thành phần>**
+    **(*<tên biến con trỏ cấu trúc>).<tên thành phần>**
+- Example
+```sh
+typedef struct
+{
+int tu, mau;
+} PHANSO;
+PHANSO ps1, *ps2 = &ps1; // ps2 là con trỏ
+ps1.tu = 1; ps1.mau = 2;
+ps2->tu = 1; ps2->mau = 2;
+<=> (*ps2).tu = 1; (*ps2).mau = 2;
+```
