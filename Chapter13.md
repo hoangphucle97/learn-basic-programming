@@ -102,3 +102,103 @@ printf(“%d ”, *(p + d * C + c));// *p++
 printf(“\n”);
 }
 ```
+### Approach 2.
+- one-dimensional array, each element is a one-dimensional array
+    + a contains a[0], a[1]… -> a = & a[0]
+    + a[0] contains a[0][0], a[0][1]… -> a[0] = &a[0][0]
+### Size of the array.
+```sh
+void main()
+{
+int a[3][4];
+printf(“KT của a = %d”, sizeof(a));
+printf(“KT của a[0] = %d”, sizeof(a[0]));
+printf(“KT của a[0][0] = %d”, sizeof(a[0][0]));
+}
+```
+### Comment.
+- a is a pointer to a[0], a[0] is a pointer to a[0][0] -> a is a second-level pointer.
+- A[0][0] can be accessed in 3 ways.
+```sh
+void main()
+{
+int a[3][4];
+a[0][0] = 1;
+*a[0] = 1;
+**a = 1;
+a[1][0] = 1; *a[1] = 1; **(a+1) = 1;
+a[1][2] = 1; *(a[1]+2) = 1; *(*(a+1)+2) = 1;
+}
+```
+### Pass the array to the function.
+- Pass the address of the first element to the function.
+- Declare a pointer and then assign the array address to this pointer so that it points to the array.
+- This pointer must be of the same type as the array variable, i.e. pointer to n-element memory (array).
+- Syntax:
+    **<kiểu dữ liệu> (*<tên con trỏ>)[<số phần tử>];**
+- Output an array method 1.
+```sh
+void Xuat_1_Mang_C1(int (*ptr)[4]) // ptr[][4]
+{
+int *p = (int *)ptr;
+for (int i = 0; i < 4; i++)
+printf(“%d ”, *p++);
+}
+void main()
+{
+int a[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+int (*ptr)[4];
+ptr = a;
+for (int i = 0; i < 3; i++)
+Xuat_1_Mang_C1(ptr++); // hoặc ptr + i
+Xuat_1_Mang_C1(a++); // sai => a + i
+}
+```
+- Output an array method 2.
+```sh
+void Xuat_1_Mang_C2(int *ptr, int n) // ptr[]
+{
+for (int i = 0; i < n; i++)
+printf(“%d ”, *ptr++);
+}
+void main()
+{
+int a[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+int (*ptr)[4];
+ptr = a;
+for (int i = 0; i < 3; i++)
+Xuat_1_Mang_C2((int *)ptr++);
+Xuat_1_Mang_C2((int *)(a + i));// a++ sai
+}
+```
+- Output multiple arrays method 1.
+```sh
+void Xuat_n_Mang_C1(int (*ptr)[4], int n)
+{
+int *p = (int *)ptr;
+for (int i = 0; i < n * 4; i++)
+printf(“%d ”, *p++);
+}
+void main()
+{
+int a[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+int (*ptr)[4];
+ptr = a;
+Xuat_n_Mang_1(ptr, 3);
+Xuat_n_Mang_1(a, 3);
+}
+```
+- Output multiple arrays method 2.
+```sh
+void Xuat_n_Mang_C2(int (*ptr)[4], int n)
+{
+int *p;
+for (int i = 0; i < n; i++)
+{
+p = (int *)ptr++;
+for (int i = 0; i < 4; i++)
+printf(“%d ”, *p++);
+printf(“\n”);
+}
+}
+```
