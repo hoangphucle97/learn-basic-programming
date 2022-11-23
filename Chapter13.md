@@ -202,3 +202,27 @@ printf(“\n”);
 }
 }
 ```
+## Function pointer.
+### Concept.
+- Functions are also stored in memory, ie also have addresses.
+- Function pointer is a pointer to the memory area containing the function and can call the function through that pointer.
+### Explicit declaration.
+**<kiểu trả về> (* <tên biến con trỏ>)(ds tham số);**
+```sh
+// Con trỏ đến hàm nhận đối số int, trả về int
+int (*ptof1)(int x);
+// Con trỏ đến hàm nhận 2 đối số double, không trả về
+void (*ptof2)(double x, double y);
+// Con trỏ đến hàm nhận đối số mảng, trả về char
+char (*ptof3)(char *p[]);
+// Con trỏ đến không nhận đối số và không trả về
+void (*ptof4)();
+```
+### Non-explicit declaration.
+**typedef <kiểu trả về> (* <tên kiểu>)(ds tham số);**
+**<tên kiểu> <tên biến con trỏ>;**
+```sh
+int (*pt1)(int, int); // Tường minh
+typedef int (*PhepToan)(int, int);
+PhepToan pt2, pt3; // Không tường minh
+```
