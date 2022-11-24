@@ -226,3 +226,110 @@ int (*pt1)(int, int); // Tường minh
 typedef int (*PhepToan)(int, int);
 PhepToan pt2, pt3; // Không tường minh
 ```
+### Assign value to function pointer.
+- **<biến con trỏ hàm> = <tên hàm>;**
+- **<biến con trỏ hàm> = &<tên hàm>;**
+- The assigned function must have the same form (in, out).
+```sh
+int Cong(int x, int y); // Hàm
+int Tru(int x, int y); // Hàm
+int (*tinhtoan)(int x, int y); // Con trỏ hàm
+tinhtoan = Cong; // Dạng ngắn gọn
+tinhtoan = &Tru; // Dạng sử dụng địa chỉ
+tinhtoan = NULL; // Không trỏ đến đâu cả
+```
+### Compare function pointers.
+```sh
+if (tinhtoan != NULL)
+{
+if (tinhtoan == &Cong)
+printf(“Con trỏ đến hàm Cong.”);
+else
+if (tinhtoan == &Tru)
+printf(“Con trỏ đến hàm Tru.”);
+else
+printf(“Con trỏ đến hàm khác.”);
+}
+else
+printf(“Con trỏ chưa được khởi tạo!”);
+```
+### Call the function through the function pointer.
+- Use the content operator "*" (formal), but this case can be ignored.
+```sh
+int Cong(int x, int y);
+int Tru(int x, int y);
+int (*tinhtoan)(int, int);
+tinhtoan = Cong;
+int kq1 = (*tinhtoan)(1, 2); // Chính quy
+int kq2 = tinhtoan(1, 2); // Ngắn gọn
+```
+### Pass parameter as function pointer.
+```sh
+int Cong(int x, int y);
+int Tru(int x, int y);
+int TinhToan(int x, int y, int (*pheptoan)(int, int))
+{
+int kq = (*pheptoan)(x, y); // Gọi hàm
+return kq;
+}
+void main()
+{
+int (*pheptoan)(int, int) = &Cong;
+int kq1 = TinhToan(1, 2, pheptoan);
+int kq2 = TinhToan(1, 2, &Tru);
+}
+```
+### Returns a function pointer.
+```sh
+int (*LayPhepToan(char code))(int, int)
+{
+if (code == „+‟)
+return &Cong;
+return &Tru;
+}
+void main()
+{
+int (*pheptoan)(int, int) = NULL;
+pheptoan = LayPhepToan(„+‟);
+int kq2 = pheptoan(1, 2, &Tru);
+}
+```
+### Returns a function pointer (type declaration).
+```sh
+typedef (*PhepToan)(int, int);
+PhepToan LayPhepToan(char code)
+{
+if (code == „+‟)
+return &Cong;
+return &Tru;
+}
+void main()
+{
+PhepToan pheptoan = NULL;
+pheptoan = LayPhepToan(„+‟);
+int kq2 = pheptoan(1, 2, &Tru);
+}
+```
+### Array of function pointers.
+```sh
+typedef (*PhepToan)(int, int);
+void main()
+{
+int (*array1[2])(int, int); // tường minh
+PhepToan array2[2]; // kô tường minh
+array1[0] = array2[1] = &Cong;
+array1[1] = array2[0] = &Tru;
+printf(“%d\n”, (*array1[0])(1, 2));
+printf(“%d\n”, array1[1](1, 2));
+printf(“%d\n”, array2[0](1, 2));
+printf(“%d\n”, array2[1](1, 2));
+}
+```
+### Note
+```sh
+- Do not forget the sign () when declaring function pointers.
+    + int (*PhepToan)(int x, int y);
+    + int *PhepToan(int x, int y);
+- The parameter variable name can be omitted in the function pointer declaration.
+    + int (*PhepToan)(int x, int y);
+    + int (*PhepToan)(int, int);
