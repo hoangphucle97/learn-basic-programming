@@ -69,3 +69,19 @@ NODE *pHead;
 NODE *pTail;
 } CLIST;
 ```
+## Single linked list.
+### Remove a node from the end of the list.
+- Find the last node p (with p->pNext == NULL).
+- Find the q node before the p node (if any).
+- Cancel button after q button.
+### Remove a node with key k (Info = k).
+- Find node p with key k and destroy previous node q.
+- Cancel the button after the q button (if any).
+### Browse the list.
+- Count/Find the elements of the list that satisfy the condition.
+- Remove the entire list.
+## Application of single DSLK.
+### Stack.
+- Working under LIFO (Last In First Out) mechanism.
+### Queue.
+- Working under FIFO (First In First Out) mechanism.
