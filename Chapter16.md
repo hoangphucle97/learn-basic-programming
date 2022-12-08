@@ -128,3 +128,72 @@ int y;
 } diem1;
 printf(“x = %d, y = %d”, diem1.x, diem1.y);
 ```
+## Assign structured data.
+### Have two way.
+- <biến cấu trúc đích> = <biến cấu trúc nguồn>;
+- <biến cấu trúc đích>.<tên thành phần> = <giá trị>;
+### Example.
+```sh
+struct DIEM
+{
+int x, y;
+} diem1 = {2912, 1706}, diem2;
+…
+diem2 = diem1;
+diem2.x = diem1.x;
+diem2.y = diem1.y * 2;
+```
+## Complex structure.
+### The composition of a structure is another structure.
+```sh
+struct DIEM
+{
+int x;
+int y;
+};
+struct HINHCHUNHAT
+{
+struct DIEM traitren;
+struct DIEM phaiduoi;
+} hcn1;
+…
+hcn1.traitren.x = 2912;
+hcn1.traitren.y = 1706;
+```
+### The members of the structure are arrays.
+```sh
+struct SINHVIEN
+{
+char hoten[30];
+float toan, ly, hoa;
+} sv1;
+…
+strcpy(sv1.hoten, “Nguyen Van A”);
+sv1.toan = 10;
+sv1.ly = 6.5;
+sv1.hoa = 9;
+```
+### Recursive (self-pointing) structure.
+```sh
+struct PERSON
+{
+char hoten[30];
+struct PERSON *father, *mother;
+};
+struct NODE
+{
+int value;
+struct NODE *pNext;
+};
+```
+### The composition of the struct is sized in bits.
+```sh
+struct bit_fields
+{
+int bit_0 : 1;
+int bit_1_to_4 : 4;
+int bit_5 : 1;
+int bit_6_to_15 : 10;
+};
+```
+## The size of the struct.
