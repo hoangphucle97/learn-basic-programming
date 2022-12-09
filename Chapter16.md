@@ -197,3 +197,70 @@ int bit_6_to_15 : 10;
 };
 ```
 ## The size of the struct.
+### Example.
+```sh
+struct A
+{
+int a;
+double b;
+};
+sizeof(A) = ???
+```
+```sh
+struct B1
+{
+int a;
+int b;
+double c;
+};
+sizeof(B1) = ???
+```
+```sh
+struct B2
+{
+int a;
+double c;
+int b;
+};
+sizeof(B2) = ???
+```
+## Directive #pragma pack.
+### Directive #pragma pack (n).
+-  n = 1, 2, 4, 8, 16 (byte)
+- The maximum boundary of the elements in the struct.
+    + BC n default is 1
+    + VC++ n default is 8
+    + Project settings -> Compile Option C/C++ -> Code Generation -> Structure Alignment
+- Boundary for 1 structure.
+```sh
+#pragma pack(push, 1)
+struct MYSTRUCT { … };
+#pragma pack(pop)
+```
+## #pragma pack
+### Example (without #pragma pack (1).)
+```sh
+struct A {
+double a;
+int b;
+int c;
+};
+struct B {
+int b;
+double a;
+int c;
+};
+struct C {
+int b;
+int c;
+double a;
+};
+```
+### Structure notes.
+- The struct type is defined to be the format and the struct variable is declared to use the defined format.
+- In C++, struct keyword can be omitted when declaring variables (or using typedef).
+- When entering real numeric variables in the structure, it must be entered through an intermediate variable.
+```sh
+struct DIEM { float x, y;} d1;
+float temp; scanf(“%f”, &temp); d1.x = temp;
+```
