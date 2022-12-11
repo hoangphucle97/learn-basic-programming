@@ -264,3 +264,89 @@ double a;
 struct DIEM { float x, y;} d1;
 float temp; scanf(“%f”, &temp); d1.x = temp;
 ```
+## Structure array.
+### Structure array.
+- Similar to array with base data type (char, int, float, ...).
+```sh
+struct DIEM
+{
+int x;
+int y;
+};
+DIEM mang1[20];
+DIEM mang2[10] = {{3, 2}, {4, 4}, {2, 7}};
+```
+## Pass the structure to the function.
+### Pass the structure to the function.
+- Same as passing the base data type.
+    + Value (no change after the end of the function)
+    + Reference
+    + Pointer
+- Example:
+```sh
+struct DIEM { int x, y; };
+void xuat1(int x, int y) { … };
+void xuat2(DIEM diem) { … };
+void xuat3(DIEM &diem) { … };
+void xuat4(DIEM *diem) { … };
+```
+## Union.
+### Concept.
+- Declared and used as struct.
+- The members of the union share the same head address (overlapped in memory).
+### Syntax.
+```sh
+union <tên kiểu union>
+{
+<kiểu dữ liệu> <tên thành phần 1>;
+…
+<kiểu dữ liệu> <tên thành phần 2>;
+};
+```
+## Compare struct and union.
+### Example Struct.
+```sh
+struct MYSTRUCT
+{
+char c;
+int n;
+} s;
+s.c = 1; s.n = 2;
+```
+### Example Union.
+```sh
+union MYUNION
+{
+char c;
+int n;
+} u;
+u.c = 1; u.n = 2;
+```
+### Sruct in union.
+```sh
+union date_tag
+{
+char full_date[9];
+struct
+{
+char month[2];
+char break_value1;
+char day[2];
+char break_value2;
+char year[2];
+} part_date_tag;
+} date = {“29/12/82”};
+```
+### Union in struct
+```sh
+struct generic_tag
+{
+char type;
+union
+{
+char c;
+int i;
+float f;
+} share_tag;
+};
+```
