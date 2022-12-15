@@ -104,3 +104,76 @@ s = addPi(s); // Cách 2 (1.4s)
 - Recursive inline functions are not allowed.
 - Most do not allow inline execution of functions using while loops.
 - Only inline small functions, inline large functions will be counterproductive (memory for occupied inline function will take longer to release).
+### Syntax.
+```sh
+<kiểu trả về> &<tên hàm>([<ds tham số>])
+{
+return <biến>;
+}
+```
+### Example.
+```sh
+#include <stdio.h>
+int x;
+int &getx()
+{
+return x;
+}
+void main()
+{
+getx() = 5; //  x = 5
+}
+```
+### Application.
+- The index of the array in C/C++ starts from 0.
+-> Not very familiar.
+- Write a function so that when we want to access the ith element of the array a, we use V(i) instead of a[i-1].
+```sh
+int a[100];
+int &V(int i)
+{
+return a[i-1];
+}
+…
+V(1) = 2912; // <=> a[0] = 2912;
+```
+### Note.
+- In the latter case the variable x should be a global variable -> should not be used!
+```sh
+int x; // biến toàn cục
+int &getx()
+{
+return x;
+}
+void main()
+{
+getx() = 2912;
+}
+```
+- If you don't want to use a global variable, you must pass x as a reference.
+```sh
+int &getx(int x) { // SAI! x là tham trị -> bản sao
+return x;
+}
+int &getx() {
+int x; // SAI! x là biến cục bộ
+return x;
+}
+int &getx(int &x) { // ĐÚNG! x là tham chiếu
+return x;
+}
+```
+### Example.
+```sh
+#include <stdio.h>
+int &V(int a[], int i)
+{
+return a[i-1];
+}
+void main()
+{
+int a[100];
+for (int i = 1; i <= 100; i++)
+V(a, i) = 0;
+}
+```
