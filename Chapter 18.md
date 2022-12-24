@@ -152,3 +152,89 @@ printf(“%d\n”, f(2912, 1706));
 printf(“%d\n”, f(2912)); //???
 }
 ```
+## Operator overloading.
+### Concept.
+- Like function overloading.
+- There are some other provisions on parameters.
+- Create an operator function to overload operators.
+```sh
+<kiểu trả về> operator#(<ds tham số>)
+{
+// Các thao tác cần thực hiện
+}
+#is the operator (except . :: .* ?), <ds tham số> depends on the overloaded operator.
+```
+## Binary operator.
+- Assignment operator (=), arithmetic (+, –, *, /, %), relational (<, <=, >, >=, !=, ==), logic (&&, ||, !).
+- Consists of two operands.
+- Can change the left-hand operand.
+- Can return the result to the next math operation.
+### The + operator (for two PHANSOs).
+```sh
+typedef struct {int tu, mau;} PHANSO;
+PHANSO operator+(PHANSO ps1, PHANSO ps2)
+{
+PHANSO ps;
+ps.tu = ps1.tu*ps2.mau + ps2.tu*ps1.mau;
+ps.mau = ps1.mau*ps2.mau;
+return ps;
+}
+…
+PHANSO a = {1, 2}, b = {3, 4}, c = {5, 6};
+PHANSO d = a + b + c; // <=> d = a + (b + c)
+```
+- "==" operator (for two PHANSOs)
+```sh
+typedef struct {int tu, mau;} PHANSO;
+int operator==(PHANSO ps1, PHANSO ps2)
+{
+if (ps1.tu*ps2.mau == ps2.tu*ps1.mau)
+return 1;
+return 0;
+}
+…
+PHANSO a = {1, 2}, b = {2, 4};
+if (a == b)
+printf(“a bằng b”);
+```
+## Unary operator.
+- The increment and decrement operator (++, – –), the inversion operator ( – ).
+- Only one operand.
+- Increment operator ++ (before).
+```sh
+typedef struct {int tu, mau;} PHANSO;
+PHANSO operator++(PHANSO &ps)
+{
+ps.tu = ps.tu + ps.mau;
+return ps;
+}
+…
+PHANSO a1 = {1, 2}, a2 = {1, 2};
+PHANSO c1 = ++a1;
+PHANSO c2 = a2++; // OK nhưng warning ++ sau
+```
+- Increment operator ++ (after).
+```sh
+typedef struct {int tu, mau;} PHANSO;
+PHANSO operator++(PHANSO &ps, int notused)
+{
+ps.tu = ps.tu + ps.mau;
+return ps;
+}
+…
+PHANSO a = {1, 2}, b = {3, 4};
+PHANSO c1 = ++a; // operator++(ps)
+PHANSO c2 = a++; // operator++(ps, 0)
+```
+- The sign inversion operator –.
+```sh
+typedef struct {int tu, mau;} PHANSO;
+PHANSO operator–(PHANSO ps)
+{
+ps.tu = –ps.tu;
+return ps;
+}
+…
+PHANSO a = {1, 2};
+PHANSO b = –a;
+```
